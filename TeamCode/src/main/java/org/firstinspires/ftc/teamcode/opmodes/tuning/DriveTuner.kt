@@ -26,6 +26,5 @@ class DriveTuner : OpMode() {
         robot.telemetry.addLine("Velocity: ${velocity.position}")
         robot.telemetry.addData("Status", robot.drive.odometry.pinpoint.deviceStatus);
         robot.telemetry.addData("Pinpoint Frequency", robot.drive.odometry.pinpoint.frequency);
-        robot.telemetry.update()
     }
 }
