@@ -7,7 +7,6 @@ import org.firstinspires.ftc.teamcode.common.Robot
 import org.firstinspires.ftc.teamcode.common.utils.Pose2d
 import org.firstinspires.ftc.teamcode.common.utils.Subsystem
 import org.firstinspires.ftc.teamcode.common.utils.init
-import org.firstinspires.ftc.teamcode.rr.drive.SampleMecanumDrive
 import kotlin.math.absoluteValue
 import kotlin.math.max
 
@@ -18,12 +17,9 @@ open class Drive(val robot: Robot) : Subsystem() {
     val backLeft: DcMotorEx = (robot.hardware["backLeft"] as DcMotorEx).apply { init() }
     val backRight: DcMotorEx = (robot.hardware["backRight"] as DcMotorEx).apply { init(false) }
     val motors = listOf<DcMotorEx>(frontLeft, frontRight, backLeft, backRight)
-    val odometry = SampleMecanumDrive(robot.hardware).localizer
-    val pose: Pose2d
-        get() {
-            val pose = odometry.poseEstimate
-            return Pose2d(pose.x, pose.y, pose.heading)
-        }
+    val odometry = Pinpoint(robot)
+    val pose: Pose2d = odometry.pose
+    val velocity: Pose2d = odometry.velocity
 
     fun robotCentric(forward: Double, strafe: Double, rotate: Double) = fieldCentric(forward, strafe, rotate, 0.0)
 

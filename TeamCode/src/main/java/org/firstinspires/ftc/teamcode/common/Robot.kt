@@ -24,7 +24,7 @@ open class Robot(val opMode: OpMode) : SubsystemBase() {
     val additionalSubsystems: List<Subsystem> = listOf()
     open val subsystems: List<Subsystem> by lazy {
         listOf(
-            drive, intake, outtake
+            this@Robot.pinpoint, intake, outtake
         ) + additionalSubsystems
     }
     val deltaTime = DeltaTime()

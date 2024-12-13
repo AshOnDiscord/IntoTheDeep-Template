@@ -38,10 +38,6 @@ repositories {
         url = 'https://maven.brott.dev/'
     }
     maven { url 'https://jitpack.io' }
-    maven { url "https://repo.dairy.foundation/snapshots" }
-    maven {
-        url "https://repo.dairy.foundation/releases"
-    }
 }
 
 dependencies {
@@ -51,17 +47,9 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.13.1'// core tclib
     annotationProcessor files('lib/OpModeAnnotationProcessor.jar')
 
-    implementation 'com.github.Thermal-Equilibrium:homeostasis-FTC:1.0.8'
-
     implementation 'org.apache.commons:commons-math3:3.6.1'
-    implementation 'com.acmerobotics.roadrunner:core:0.5.6'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.7'
     implementation "com.acmerobotics.dashboard:dashboard:0.4.16"
 
     implementation project(':PathPlanner')
-
-    implementation "dev.frozenmilk.sinister.sloth:DashFix:0.0.0";
-    implementation "dev.frozenmilk:Sinister:2.0.1"
 }
-
-apply plugin: 'dev.frozenmilk.sinister.sloth.Load'
